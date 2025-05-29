@@ -1,37 +1,40 @@
 :root {
-    --primary-color: #4a6fa5;
-    --secondary-color: #166088;
-    --accent-color: #4fc3f7;
-    --background-color: #f5f7fa;
-    --text-color: #333;
-    --light-text: #777;
-    --border-color: #ddd;
-    --completed-color: #4caf50;
-    --pending-color: #f44336;
+    --primary-color: #2d6cdf;
+    --secondary-color: #1c4fb7;
+    --accent-color: #f9a826;
+    --background-color: #f4f6fb;
+    --card-bg: #ffffff;
+    --text-color: #1f1f1f;
+    --light-text: #6c757d;
+    --border-color: #e0e6ed;
+    --completed-color: #00b894;
+    --pending-color: #ff5252;
     --streak-color: #ff9800;
-    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+    --transition: 0.3s ease;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.7;
     padding: 20px;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
 
@@ -41,27 +44,28 @@ header {
 }
 
 header h1 {
+    font-size: 2.2rem;
     color: var(--primary-color);
-    margin-bottom: 10px;
 }
 
 header p {
     color: var(--light-text);
+    font-size: 1rem;
 }
 
 .task-form {
     display: flex;
-    margin-bottom: 20px;
-    gap: 10px;
+    gap: 12px;
+    margin-bottom: 25px;
 }
 
 .task-form input {
     flex: 1;
-    padding: 12px 15px;
+    padding: 14px 16px;
     border: 1px solid var(--border-color);
-    border-radius: 5px;
+    border-radius: var(--radius);
     font-size: 16px;
-    transition: border 0.3s;
+    transition: border var(--transition);
 }
 
 .task-form input:focus {
@@ -70,56 +74,43 @@ header p {
 }
 
 .task-form button {
-    padding: 12px 20px;
+    padding: 14px 22px;
     background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--radius);
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s;
+    transition: background-color var(--transition);
 }
 
 .task-form button:hover {
     background-color: var(--secondary-color);
 }
 
-.controls {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.controls button {
-    padding: 10px 15px;
-    background-color: #f0f0f0;
-    color: var(--text-color);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.3s;
-}
-
-.controls button:hover {
-    background-color: #e0e0e0;
-}
-
+.controls,
 .filter-buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
 }
 
+.controls button,
 .filter-btn {
-    padding: 8px 16px;
-    background-color: #f0f0f0;
+    padding: 10px 18px;
+    background-color: #e9effb;
     color: var(--text-color);
     border: none;
-    border-radius: 5px;
+    border-radius: var(--radius);
     cursor: pointer;
     font-size: 14px;
-    transition: all 0.3s;
+    transition: all var(--transition);
+}
+
+.controls button:hover,
+.filter-btn:hover {
+    background-color: #dbe7fd;
 }
 
 .filter-btn.active {
@@ -127,26 +118,22 @@ header p {
     color: white;
 }
 
-.filter-btn:hover {
-    background-color: #e0e0e0;
-}
-
 .task-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
 }
 
 .task-item {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    padding: 15px;
-    background-color: white;
+    padding: 18px 20px;
+    background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 5px;
-    transition: all 0.3s;
+    border-radius: var(--radius);
+    transition: var(--transition);
     position: relative;
-    overflow: hidden;
 }
 
 .task-item:hover {
@@ -154,13 +141,13 @@ header p {
 }
 
 .task-item.completed {
-    background-color: rgba(76, 175, 80, 0.1);
-    border-left: 4px solid var(--completed-color);
+    background-color: rgba(0, 184, 148, 0.08);
+    border-left: 5px solid var(--completed-color);
 }
 
 .task-item.pending {
-    background-color: rgba(244, 67, 54, 0.05);
-    border-left: 4px solid var(--pending-color);
+    background-color: rgba(255, 82, 82, 0.05);
+    border-left: 5px solid var(--pending-color);
 }
 
 .task-checkbox {
@@ -172,7 +159,7 @@ header p {
 
 .task-text {
     flex: 1;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .task-text.completed {
@@ -182,7 +169,7 @@ header p {
 
 .task-actions {
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 
 .task-actions button {
@@ -190,8 +177,8 @@ header p {
     border: none;
     cursor: pointer;
     color: var(--light-text);
-    font-size: 16px;
-    transition: color 0.3s;
+    font-size: 18px;
+    transition: color var(--transition);
 }
 
 .task-actions button:hover {
@@ -203,11 +190,12 @@ header p {
     align-items: center;
     margin-left: 15px;
     color: var(--streak-color);
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .streak-icon {
-    margin-right: 5px;
+    margin-right: 6px;
 }
 
 .task-due {
@@ -220,9 +208,9 @@ header p {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: white;
-    padding: 15px;
-    border-radius: 5px;
+    background-color: var(--card-bg);
+    padding: 16px;
+    border-radius: var(--radius);
     box-shadow: var(--shadow);
     display: none;
     z-index: 100;
@@ -233,17 +221,18 @@ header p {
 }
 
 .notification-permission button {
-    padding: 8px 15px;
+    padding: 8px 16px;
     background-color: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--radius);
     cursor: pointer;
+    font-size: 14px;
 }
 
 @media (max-width: 600px) {
     .container {
-        padding: 15px;
+        padding: 20px;
     }
 
     .task-form {
@@ -254,21 +243,13 @@ header p {
         width: 100%;
     }
 
-    .controls {
-        flex-wrap: wrap;
-    }
-
     .task-item {
         flex-direction: column;
         align-items: flex-start;
-    }
-
-    .task-checkbox {
-        margin-bottom: 10px;
+        gap: 10px;
     }
 
     .task-actions {
-        margin-top: 10px;
         align-self: flex-end;
     }
 }
